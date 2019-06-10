@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 10, 2019 lúc 12:28 PM
+-- Thời gian đã tạo: Th6 10, 2019 lúc 04:16 PM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 7.2.17
 
@@ -557,6 +557,7 @@ CREATE TABLE `news` (
   `status` int(11) NOT NULL,
   `noibat` int(11) DEFAULT '0',
   `home` int(11) DEFAULT NULL,
+  `document` text COLLATE utf8_unicode_ci,
   `title` text COLLATE utf8_unicode_ci,
   `keyword` longtext COLLATE utf8_unicode_ci,
   `description` longtext COLLATE utf8_unicode_ci,
@@ -570,18 +571,24 @@ CREATE TABLE `news` (
 -- Đang đổ dữ liệu cho bảng `news`
 --
 
-INSERT INTO `news` (`id`, `cate_id`, `user_id`, `name`, `alias`, `photo`, `background`, `mota`, `content`, `status`, `noibat`, `home`, `title`, `keyword`, `description`, `com`, `stt`, `created_at`, `updated_at`) VALUES
-(1, 4, 8, 'Bài viết thiết kế demo 1', 'bai-viet-thiet-ke-demo-1', '1559533201_p1.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'post', 1, '2019-06-03 03:44:58', '2019-06-03 03:44:58'),
-(2, 4, 8, 'Bài viết thiết kế demo 2', 'bai-viet-thiet-ke-demo-2', '1559533515_p2.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'post', 2, '2019-06-03 03:45:15', '2019-06-03 03:45:15'),
-(3, 5, 8, 'Bài viết thiết kế demo 3', 'bai-viet-thiet-ke-demo-3', '1559533527_p3.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'post', 3, '2019-06-03 03:45:27', '2019-06-03 03:45:27'),
-(4, 6, 8, 'Bài viết thiết kế demo 4', 'bai-viet-thiet-ke-demo-4', '1559533543_news1.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'post', 4, '2019-06-03 03:45:43', '2019-06-03 03:45:43'),
-(5, 0, 8, 'Quy trình lam việc', 'quy-trinh-lam-viec', '', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'bai-viet', 1, '2019-06-03 04:10:17', '2019-06-03 04:10:17'),
-(6, 0, 8, 'Cam kết', 'cam-ket', '', '', NULL, '<p>Nội dung b&agrave;i viết</p>', 1, 0, 0, NULL, NULL, NULL, 'bai-viet', 2, '2019-06-03 04:14:36', '2019-06-03 04:14:36'),
-(7, 0, 8, 'Bảo hành', 'bao-hanh', '', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'bai-viet', 3, '2019-06-03 04:12:13', '2019-06-03 04:12:13'),
-(8, 0, 8, 'Tin tức 1', 'tin-tuc-1', '1559536615_news1.png', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', NULL, 1, 1, 0, NULL, NULL, NULL, 'tin-tuc', 1, '2019-06-03 04:37:35', '2019-06-03 06:52:32'),
-(9, 0, 8, 'tin tức 2', 'tin-tuc-2', '1559536677_news2.png', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', NULL, 1, 0, 0, NULL, NULL, NULL, 'tin-tuc', 2, '2019-06-03 04:37:57', '2019-06-03 04:37:57'),
-(10, 0, 8, 'Tin tức 3', 'tin-tuc-3', '1559536688_news1.png', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', NULL, 1, 0, 0, NULL, NULL, NULL, 'tin-tuc', 3, '2019-06-03 04:38:08', '2019-06-03 04:38:08'),
-(11, 10, 8, 'Bài viết thiết kế kiến trúc biệt tự demo 1', 'bai-viet-thiet-ke-kien-truc-biet-tu-demo-1', '1559544535_news3.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'post', 5, '2019-06-03 06:48:55', '2019-06-03 06:48:55');
+INSERT INTO `news` (`id`, `cate_id`, `user_id`, `name`, `alias`, `photo`, `background`, `mota`, `content`, `status`, `noibat`, `home`, `document`, `title`, `keyword`, `description`, `com`, `stt`, `created_at`, `updated_at`) VALUES
+(1, 11, 8, 'Bài viết thiết kế demo 1', 'bai-viet-thiet-ke-demo-1', '1559533201_p1.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'post', 1, '2019-06-03 03:44:58', '2019-06-10 13:06:38'),
+(2, 11, 8, 'Bài viết thiết kế demo 2', 'bai-viet-thiet-ke-demo-2', '1559533515_p2.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'post', 2, '2019-06-03 03:45:15', '2019-06-10 13:07:35'),
+(3, 18, 8, 'Bài viết thiết kế demo 3', 'bai-viet-thiet-ke-demo-3', '1559533527_p3.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'post', 3, '2019-06-03 03:45:27', '2019-06-10 13:06:46'),
+(4, 20, 8, 'Bài viết thiết kế demo 4', 'bai-viet-thiet-ke-demo-4', '1559533543_news1.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'post', 4, '2019-06-03 03:45:43', '2019-06-10 13:06:51'),
+(5, 0, 8, 'Quy trình lam việc', 'quy-trinh-lam-viec', '', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'bai-viet', 1, '2019-06-03 04:10:17', '2019-06-03 04:10:17'),
+(6, 0, 8, 'Cam kết', 'cam-ket', '', '', NULL, '<p>Nội dung b&agrave;i viết</p>', 1, 0, 0, NULL, NULL, NULL, NULL, 'bai-viet', 2, '2019-06-03 04:14:36', '2019-06-03 04:14:36'),
+(7, 0, 8, 'Bảo hành', 'bao-hanh', '', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'bai-viet', 3, '2019-06-03 04:12:13', '2019-06-03 04:12:13'),
+(8, 0, 8, 'Tin tức 1', 'tin-tuc-1', '1559536615_news1.png', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', NULL, 1, 1, 0, NULL, NULL, NULL, NULL, 'tin-tuc', 1, '2019-06-03 04:37:35', '2019-06-03 06:52:32'),
+(9, 0, 8, 'tin tức 2', 'tin-tuc-2', '1559536677_news2.png', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', NULL, 1, 1, 0, NULL, NULL, NULL, NULL, 'tin-tuc', 2, '2019-06-03 04:37:57', '2019-06-10 13:40:14'),
+(10, 0, 8, 'Tin tức 3', 'tin-tuc-3', '1559536688_news1.png', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'tin-tuc', 3, '2019-06-03 04:38:08', '2019-06-03 04:38:08'),
+(11, 19, 8, 'Bài viết thiết kế kiến trúc biệt tự demo 1', 'bai-viet-thiet-ke-kien-truc-biet-tu-demo-1', '1559544535_news3.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'post', 5, '2019-06-03 06:48:55', '2019-06-10 13:06:57'),
+(12, 0, 8, 'Dự án 1', 'du-an-1', '1560172673_duan1.png', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat.', NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'du-an', 1, '2019-06-10 13:17:53', '2019-06-10 13:19:04'),
+(13, 0, 8, 'Dự án 2', 'du-an-2', '1560172756_duan2.png', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat.', NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'du-an', 2, '2019-06-10 13:19:16', '2019-06-10 13:19:16'),
+(14, 0, 8, 'Dự án 3', 'du-an-3', '1560172765_duan1.png', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat.', NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'du-an', 3, '2019-06-10 13:19:25', '2019-06-10 13:19:25'),
+(15, 0, 8, 'Tin tức demo 4 4', 'tin-tuc-demo-4-4', '1560174003_news2.png', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim', NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'tin-tuc', 4, '2019-06-10 13:40:03', '2019-06-10 13:40:03'),
+(16, 20, 8, 'Bài viết ý tưởng 1', 'bai-viet-y-tuong-1', '1560174477_y3.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, 'post', 6, '2019-06-10 13:47:41', '2019-06-10 13:47:57'),
+(17, 0, 8, 'Báo giá 1', 'bao-gia-1', '1560175122_mau3.png', '', NULL, '<p>Nội dung b&aacute;o gi&aacute; 1</p>', 1, 0, 0, '1560175122_baogiawebsite.docx', NULL, NULL, NULL, 'bao-gia', 1, '2019-06-10 13:58:42', '2019-06-10 14:08:43');
 
 -- --------------------------------------------------------
 
@@ -646,18 +653,18 @@ CREATE TABLE `news_categories` (
 --
 
 INSERT INTO `news_categories` (`id`, `name`, `alias`, `photo`, `mota`, `status`, `lever`, `parent_id`, `title`, `keyword`, `description`, `noibat`, `com`, `stt`, `created_at`, `background`, `updated_at`) VALUES
-(1, 'Thiết kế thi công nội thất', 'thiet-ke-thi-cong-noi-that', '', NULL, 1, 0, 0, NULL, NULL, NULL, 1, 'post', 1, '2019-06-03 04:58:11', '', '2019-06-03 04:58:11'),
-(2, 'Thiết kế kiến trúc', 'thiet-ke-kien-truc', '', NULL, 1, 0, 0, NULL, NULL, NULL, 1, 'post', 2, '2019-06-03 04:58:19', '', '2019-06-03 04:58:19'),
-(3, 'Xây dựng và cải tạo', 'xay-dung-va-cai-tao', '', NULL, 1, 0, 0, NULL, NULL, NULL, 1, 'post', 3, '2019-06-03 04:58:22', '', '2019-06-03 04:58:22'),
-(4, 'Thiết kế - thi công nội thất chung cư', 'thiet-ke-thi-cong-noi-that-chung-cu', '', NULL, 1, 0, 1, NULL, NULL, NULL, 0, 'post', 4, '2019-06-03 02:33:09', '', '2019-06-03 02:33:09'),
-(5, 'Thiết kế - thi công nội thất biệt thự', 'thiet-ke-thi-cong-noi-that-biet-thu', '', NULL, 1, 0, 1, NULL, NULL, NULL, 0, 'post', 5, '2019-06-03 02:33:35', '', '2019-06-03 02:33:35'),
-(6, 'Thiết kế - thi công nội thất nhà phố', 'thiet-ke-thi-cong-noi-that-nha-pho', '', NULL, 1, 0, 1, NULL, NULL, NULL, 0, 'post', 6, '2019-06-03 02:33:52', '', '2019-06-03 02:33:52'),
-(7, 'Thiết kế - thi công nội thất nhà liền kề', 'thiet-ke-thi-cong-noi-that-nha-lien-ke', '', NULL, 1, 0, 1, NULL, NULL, NULL, 0, 'post', 7, '2019-06-03 02:34:12', '', '2019-06-03 02:34:12'),
-(9, 'Cẩm nang', 'cam-nang', '', NULL, 1, 0, 0, NULL, NULL, NULL, 0, 'post', 9, '2019-06-03 03:11:36', '', '2019-06-03 03:11:36'),
-(10, 'Thiết kế kiến trúc biệt thự', 'thiet-ke-kien-truc-biet-thu', '', NULL, 1, 0, 2, NULL, NULL, NULL, 0, 'post', 9, '2019-06-03 05:02:24', '', '2019-06-03 05:02:24'),
-(11, 'Danh mục thiết kế 1', 'danh-muc-thiet-ke-1', '', NULL, 1, 0, 0, NULL, NULL, NULL, 0, 'thiet-ke', 1, '2019-06-10 10:20:42', '', '2019-06-10 10:20:42'),
-(12, 'Danh mục thiết kế 2', 'danh-muc-thiet-ke-2', '', NULL, 1, 0, 0, NULL, NULL, NULL, 0, 'thiet-ke', 2, '2019-06-10 10:21:04', '', '2019-06-10 10:21:04'),
-(13, 'Danh mục thiết kế 3', 'danh-muc-thiet-ke-3', '', NULL, 1, 0, 0, NULL, NULL, NULL, 0, 'thiet-ke', 3, '2019-06-10 10:21:13', '', '2019-06-10 10:21:13');
+(22, 'Mẫu nhà 4', 'mau-nha-4', '1560172416_mau4.png', NULL, 1, 0, 15, NULL, NULL, NULL, 1, 'post', 12, '2019-06-10 13:16:21', '', '2019-06-10 13:16:21'),
+(11, 'Danh mục thiết kế 1', 'danh-muc-thiet-ke-1', '', NULL, 1, 0, 14, NULL, NULL, NULL, 0, 'post', 1, '2019-06-10 13:16:52', '', '2019-06-10 13:16:52'),
+(12, 'Danh mục thiết kế 2', 'danh-muc-thiet-ke-2', '', NULL, 1, 0, 14, NULL, NULL, NULL, 0, 'post', 2, '2019-06-10 13:03:47', '', '2019-06-10 12:57:19'),
+(13, 'Danh mục thiết kế 3', 'danh-muc-thiet-ke-3', '', NULL, 1, 0, 14, NULL, NULL, NULL, 0, 'post', 3, '2019-06-10 13:03:50', '', '2019-06-10 12:57:22'),
+(14, 'Thiết kế mới', 'thiet-ke-moi', '', NULL, 1, 0, 0, NULL, NULL, NULL, 0, 'post', 4, '2019-06-10 13:03:54', '', '2019-06-10 12:57:07'),
+(15, 'Các mẫu nhà', 'cac-mau-nha', '', NULL, 1, 0, 0, NULL, NULL, NULL, 1, 'post', 5, '2019-06-10 13:03:56', '', '2019-06-10 12:58:07'),
+(16, 'Ý tưởng thiết kế', 'y-tuong-thiet-ke', '', NULL, 1, 0, 0, NULL, NULL, NULL, 1, 'post', 6, '2019-06-10 13:03:59', '', '2019-06-10 12:58:17'),
+(17, 'Diện tích mặt tiền 3m', 'dien-tich-mat-tien-3m', '1560172354_mau1.png', NULL, 1, 0, 15, NULL, NULL, NULL, 0, 'post', 7, '2019-06-10 13:12:34', '', '2019-06-10 13:12:34'),
+(18, 'Diện tích mặt tiền 4m', 'dien-tich-mat-tien-4m', '1560172396_mau2.png', NULL, 1, 0, 15, NULL, NULL, NULL, 0, 'post', 8, '2019-06-10 13:13:16', '', '2019-06-10 13:13:16'),
+(19, 'Diện tích mặt tiền 5m', 'dien-tich-mat-tien-5m', '1560172400_mau3.png', NULL, 1, 0, 15, NULL, NULL, NULL, 0, 'post', 9, '2019-06-10 13:13:20', '', '2019-06-10 13:13:20'),
+(20, 'Danh mục ý tưởng 1', 'danh-muc-y-tuong-1', '1560172477_y1.png', NULL, 1, 0, 16, NULL, NULL, NULL, 0, 'post', 10, '2019-06-10 13:14:37', '', '2019-06-10 13:14:37'),
+(21, 'Danh mục ý tưởng 2', 'danh-muc-y-tuong-2', '1560172482_y2.png', NULL, 1, 0, 16, NULL, NULL, NULL, 0, 'post', 11, '2019-06-10 13:14:42', '', '2019-06-10 13:14:42');
 
 -- --------------------------------------------------------
 
@@ -1424,7 +1431,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT cho bảng `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `newsletter`
@@ -1436,7 +1443,7 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT cho bảng `news_categories`
 --
 ALTER TABLE `news_categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `pages`

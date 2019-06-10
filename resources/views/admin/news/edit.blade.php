@@ -27,9 +27,9 @@
 	                <ul class="nav nav-tabs">
 	                  	<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Thông tin chung</a></li>
 	                  	<li><a href="#tab_2" data-toggle="tab" aria-expanded="true">Nội dung</a></li>
-	                  	@if($_GET['type']=='du-an')
+	                  	<!-- @if($_GET['type']=='du-an')
 	                  	<li><a href="#tab_3" data-toggle="tab" aria-expanded="true">Album ảnh</a></li>
-	                  	@endif
+	                  	@endif -->
 	                  	<li><a href="#tab_4" data-toggle="tab" aria-expanded="true">SEO</a></li>
 	                </ul>
 	                <div class="tab-content">
@@ -75,7 +75,15 @@
 								      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('txtAlias'); !!}</label>
 								      	@endif
 									</div>
-									@if($_GET['type']=='tin-tuc')
+									@if($_GET['type']=='bao-gia')
+									<div class="form-group @if ($errors->first('txtAlias')!='') has-error @endif">
+								      	<label for="alias">File báo giá(pdf)</label>
+								      	<p>{{asset('upload/document/'.$data->document)}}</p>
+								      	<input type="file" name="document">
+								      	<input type="hidden" name="document_current" value="{!! @$data->document !!}">
+									</div>
+									@endif
+									@if($_GET['type']=='tin-tuc' || $_GET['type']=='du-an')
 									<div class="form-group">
 								      	<label for="desc">Mô tả</label>
 								      	<textarea name="txtDesc" rows="5" class="form-control">{{ $data->mota }}</textarea>

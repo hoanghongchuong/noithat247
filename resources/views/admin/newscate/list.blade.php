@@ -56,7 +56,7 @@
                 <th>Danh mục cha</th>
                 @endif
                 <th>Tên danh mục</th>
-                <!-- <th class="text-center with_dieuhuong">Hiển thị</th> -->
+                <th class="text-center with_dieuhuong">Hiển thị</th>
                 <th class="text-center with_dieuhuong">Sửa</th>
                 <th class="text-center with_dieuhuong">Xóa</th>
               </tr>
@@ -80,13 +80,19 @@
                 <td>{{$item->name}}<br>
                 
                </td>
-                <!-- <td class="text-center with_dieuhuong">
+                <td class="text-center with_dieuhuong">
                   @if($item->status>0)
                     <a href="backend/newscate/edit?id={{$item->id}}&hienthi={{ time() }}&type={{ @$_GET['type'] }}" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Bật</a>
                   @else
                     <a href="backend/newscate/edit?id={{$item->id}}&hienthi={{ time() }}&type={{ @$_GET['type'] }}" class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Tắt</a>
+                  @endif 
+                  <p></p>
+                  @if($item->noibat>0)
+                    <a href="backend/newscate/edit?id={{$item->id}}&noibat={{ time() }}&type={{ @$_GET['type'] }}" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Hiển thị trang chủ</a>
+                  @else
+                    <a href="backend/newscate/edit?id={{$item->id}}&noibat={{ time() }}&type={{ @$_GET['type'] }}" class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Hiển thị trang chủ</a>
                   @endif
-                </td> -->
+                </td>
                 <td class="text-center with_dieuhuong">
                   <i class="fa fa-pencil fa-fw"></i><a href="backend/newscate/edit?id={{$item->id}}&type={{ @$_GET['type'] }}">Edit</a>
                 </td>
@@ -102,7 +108,7 @@
           <div class="col-md-6">
             <input type="button" onclick="javascript:window.location='backend/newscate/add?type={{ @$_GET[type] }}'" value="Thêm" class="btn btn-primary" />
             <button type="button" id="xoahet" class="btn btn-success">Xóa</button>
-            <input type="button" value="Thoát" onclick="javascript:window.location='admin'" class="btn btn-danger" />
+            <input type="button" value="Thoát" onclick="javascript:window.location='backend'" class="btn btn-danger" />
 
           </div>
         </div>

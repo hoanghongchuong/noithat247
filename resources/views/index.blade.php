@@ -59,14 +59,8 @@
         @include('templates.layout.footer')
 
 
-        <!--google dich-->
-        <!--google dich-->
-        <script type="text/javascript">
-        function googleTranslateElementInit() {
-          new google.translate.TranslateElement({pageLanguage: 'vi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-        }
-        </script>
-        <div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon" style="left: -50px; bottom: 0; display: block;position: fixed; z-index: 99999999999999999999999">
+        
+        <!-- <div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon" style="left: -50px; bottom: 0; display: block;position: fixed; z-index: 99999999999999999999999">
           <div class="phonering-alo-ph-circle"></div>
             <div class="phonering-alo-ph-circle-fill"></div>
               <a href="tel:"></a>
@@ -77,8 +71,26 @@
                 </a>
           </div>        
         </div>
-        <div class="phone-fixed"><a href="tel:{{$setting->phone}}" title="">{{$setting->phone}}</a></div>
+        <div class="phone-fixed"><a href="tel:{{$setting->phone}}" title="">{{$setting->phone}}</a></div> -->
     
+        <div style="position:fixed;bottom:60px;right:-3px;">
+            <a href="" target="_blank">
+            <span style="color:#0dc143;padding:10px 10px 25px 10px;font-size: 18px;background: rgba(0, 0, 0, 0.8);border-radius: 20px 0px 0px 20px;">
+            <i class="fa fa-whatsapp fa-lg"></i> Liên lạc với chúng tôi</span> <br>
+            <span style="color:#fff;padding:0px 0px 0px 40px;font-size: 12px;">
+            {{$setting->phone}}
+            </span>
+            </a>
+        </div>
+        <div style="position:fixed;bottom:3px;right:-3px;">
+            <a href="" target="_blank">
+            <span style="color:#0dc143;padding:10px 10px 25px 10px;font-size: 18px;background: rgba(0, 0, 0, 0.8);border-radius: 20px 0px 0px 20px;">
+            <i class="fa fa-whatsapp fa-lg"></i> Liên lạc với chúng tôi</span> <br>
+            <span style="color:#fff;padding:0px 0px 0px 40px;font-size: 12px;">
+            {{$setting->hotline}}
+            </span>
+            </a>
+        </div>
 
         <div id="fb-root"></div>
         <script>(function(d, s, id) {

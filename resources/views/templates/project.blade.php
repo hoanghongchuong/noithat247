@@ -21,7 +21,19 @@
                 {!! $data->content !!}
             </div>
         </div>
-        
+        <div class="row" style="margin-top: 30px;">
+            <h3>Bài viết liên quan</h3>
+            <div class="owl-carousel owl-carousel-product owl-theme">                
+                @foreach($newsSameCate as $post)
+                <div class="item">
+                    <a href="{{url('du-an/'.$post->alias.'.html')}}" title="{{$post->name}}">
+                        <img src="{{asset('upload/news/'.$post->photo)}}" alt="{{$post->name}}">
+                        <p class="name_product">{{$post->name}}</p>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+        </div>
     </div>
 </div>
 @endsection

@@ -2,7 +2,6 @@
     $setting = Cache::get('setting');
     $sliders = DB::table('slider')->where('com','gioi-thieu')->where('status',1)->get();
     $categories = App\NewsCate::where('com','post')->where('parent_id',0)->get();
-
 ?>
 <div class="top-header">
     <div class="container">
@@ -15,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 img-logo">
-                <a href="" title="">
+                <a href="{{url('')}}" title="">
                     <img src="{{asset('upload/hinhanh/'.$setting->photo)}}" class="" alt="">
                 </a>
             </div>
@@ -40,42 +39,16 @@
             <ul class="navi">                                        
                 <li><a href="{{url('')}}">Trang chủ</a></li>
                 <li><a href="{{url('gioi-thieu')}}">Giới thiệu</a></li>
+                @foreach($categories as $cate)
                 <li>
-                    <a href="">Thiết kế mới</a>
+                    <a href="{{url('danh-muc/'.$cate->alias)}}">{{$cate->name}}</a>
                     <ul class="vk-menu__child">                                
-                        <li><a href="#">Thiết kế - thi công nội thất chung cư</a></li>
-                        <li><a href="#">Thiết kế - thi công nội thất biệt thự</a></li>
-                        <li><a href="#">Thiết kế - thi công nội thất nhà phố</a></li>
-                        <li><a href="#">Thiết kế - thi công nội thất nhà liền kề</a></li>
-                        <li><a href="" title="">Phòng khách</a></li>                        
-                        <li><a href="" title="">Phòng ngủ</a></li>          
-                        <li><a href="#">Phòng trẻ em</a></li>                        
+                        @foreach($cate->cateChilds() as $cateChild)
+                        <li><a href="{{url('danh-muc/'.$cateChild->alias)}}">{{$cateChild->name}}</a></li>
+                        @endforeach                     
                     </ul>
                 </li>
-                <li>
-                    <a href="">Các mẫu nhà</a>
-                    <ul class="vk-menu__child">                                
-                        <li><a href="#">Thiết kế - thi công nội thất chung cư</a></li>
-                        <li><a href="#">Thiết kế - thi công nội thất biệt thự</a></li>
-                        <li><a href="#">Thiết kế - thi công nội thất nhà phố</a></li>
-                        <li><a href="#">Thiết kế - thi công nội thất nhà liền kề</a></li>
-                        <li><a href="" title="">Phòng khách</a></li>                        
-                        <li><a href="" title="">Phòng ngủ</a></li>          
-                        <li><a href="#">Phòng trẻ em</a></li>                        
-                    </ul>
-                </li>
-                <li>
-                    <a href="">Ý tưởng thiết kế</a>
-                    <ul class="vk-menu__child">                                
-                        <li><a href="#">Thiết kế - thi công nội thất chung cư</a></li>
-                        <li><a href="#">Thiết kế - thi công nội thất biệt thự</a></li>
-                        <li><a href="#">Thiết kế - thi công nội thất nhà phố</a></li>
-                        <li><a href="#">Thiết kế - thi công nội thất nhà liền kề</a></li>
-                        <li><a href="" title="">Phòng khách</a></li>                        
-                        <li><a href="" title="">Phòng ngủ</a></li>          
-                        <li><a href="#">Phòng trẻ em</a></li>                        
-                    </ul>
-                </li>                         
+                @endforeach                        
                 <li><a href="{{url('bao-gia')}}">Báo giá</a></li>          
                 <li><a href="{{url('tin-tuc')}}">Tin tức</a></li>                            
                 <!-- <li><a href="">Liên hệ</a></li> -->
@@ -103,38 +76,18 @@
         <ul class="vk-menu__mobile collapse" id="menuMobile">
             
             <li><a href="{{url('')}}">Trang chủ</a></li>
-            <li><a href="{{url('gioi-thieu')}}">Giới thiệu</a></li>                
+            <li><a href="{{url('gioi-thieu')}}">Giới thiệu</a></li>  
+            @foreach($categories as $k=>$cate)              
             <li>
-                <a href="">Thiết kế mới</a>
-                <a href="#menu2" data-toggle="collapse" class="_arrow-mobile"><i class="_icon fa fa-angle-down"></i></a>
-                <ul class="collapse" id="menu2">
-                    <li><a href="#">Khóa điện tử thẻ từ</a></li>
-                    <li><a href="#">Khóa điện tử cửa kính</a></li>
-                    <li><a href="#">Khóa điện tử cửa kính</a></li>
-                    <li><a href="#">Khóa điện tử cửa kính</a></li>
-                    <li><a href="#">Khóa điện tử cửa kính</a></li>                                              
+                <a href="{{url('danh-muc/'.$cate->alias)}}">{{$cate->name}}</a>
+                <a href="#menu{{$k}}" data-toggle="collapse" class="_arrow-mobile"><i class="_icon fa fa-angle-down"></i></a>
+                <ul class="collapse" id="menu{{$k}}">
+                    @foreach($cate->cateChilds() as $cateChild)
+                        <li><a href="{{url('danh-muc/'.$cateChild->alias)}}">{{$cateChild->name}}</a></li>
+                    @endforeach                                                
                 </ul>
             </li>
-            <li>
-                <a href="">Các mẫu nhà</a>
-                <a href="#menu3" data-toggle="collapse" class="_arrow-mobile"><i class="_icon fa fa-angle-down"></i></a>
-                <ul class="collapse" id="menu3">
-                    <li><a href="#">Nhà biệt thự</a></li>
-                    <li><a href="#">Nhà phố</a></li>
-                    <li><a href="#">Nhà hiện đại</a></li>
-                    <li><a href="#">Nhà cổ điển</a></li>                                              
-                </ul>
-            </li>
-            <li>
-                <a href="">Ý tưởng thiết kế</a>
-                <a href="#menu4" data-toggle="collapse" class="_arrow-mobile"><i class="_icon fa fa-angle-down"></i></a>
-                <ul class="collapse" id="menu4">
-                    <li><a href="#">Diện tích mặt tiền 3m</a></li>
-                    <li><a href="#">Diện tích mặt tiền 4m</a></li>
-                    <li><a href="#">Diện tích mặt tiền 5m</a></li>
-                    <li><a href="#">Diện tích mặt tiền 6m</a></li>                                              
-                </ul>
-            </li>                         
+            @endforeach                       
             <li><a href="{{url('bao-gia')}}">Báo giá</a></li>          
             <li><a href="{{url('tin-tuc')}}">Tin tức</a></li> 
         </ul>

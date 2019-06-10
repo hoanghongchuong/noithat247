@@ -46,7 +46,6 @@ class NewsCateController extends Controller {
     {
         $com= $request->txtCom;
     	$cate = new NewsCate;
-
         $img = $request->file('fImages');
         $path_img='upload/news';
         $img_name='';
@@ -108,6 +107,15 @@ class NewsCateController extends Controller {
                     $data->status = 0; 
                 }else{
                     $data->status = 1; 
+                }
+                $data->update();
+                return redirect('backend/newscate?type='.$com)->with('status','Cập nhật thành công !');
+            }
+            if($request->get('noibat')>0){
+                if($data->noibat == 1){
+                    $data->noibat = 0; 
+                }else{
+                    $data->noibat = 1; 
                 }
                 $data->update();
                 return redirect('backend/newscate?type='.$com)->with('status','Cập nhật thành công !');

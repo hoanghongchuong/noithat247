@@ -18,11 +18,7 @@ class NewsController extends Controller
     {  
         if($_GET['type']=='tin-tuc') $trang='tin tức';
         else if($_GET['type']=='dich-vu') $trang='dich vụ';
-        else if($_GET['type']=='huong-dan') $trang='hướng dẫn';
-        else if($_GET['type']=='ve-chung-toi') $trang='về chúng tôi';
-        else if($_GET['type']=='chinh-sach') $trang='chính sách';
-        else if($_GET['type']=='khong-gian') $trang='không gian';
-        else if($_GET['type']=='tuyen-dung') $trang='tuyển dụng';
+        
         else $trang = "bài viết";
         $data = NewsCate::all();
         if(!empty($_GET['type'])){
@@ -35,13 +31,8 @@ class NewsController extends Controller
     }
     public function getAdd()
     {
-        if($_GET['type']=='tin-tuc') $trang='tin tức';
-        else if($_GET['type']=='dich-vu') $trang='dich vụ';
-        else if($_GET['type']=='huong-dan') $trang='hướng dẫn';
-        else if($_GET['type']=='ve-chung-toi') $trang='về chúng tôi';
-        else if($_GET['type']=='chinh-sach') $trang='chính sách';
-        else if($_GET['type']=='khong-gian') $trang='không gian';
-        else if($_GET['type']=='tuyển dụng') $trang='tuyển dụng';
+        if($_GET['type']=='tin-tuc') $trang='tin tức';        
+
         else $trang = "bài viết";
 
         if(!empty($_GET['type'])){
@@ -73,6 +64,13 @@ class NewsController extends Controller
             $img2->move($path_img2,$img_name2);
         }
 
+        $document = $request->file('document');
+        $path_document='upload/document';
+        $document_name='';
+        if(!empty($document)){
+            $document_name=time().'_'.$document->getClientOriginalName();
+            $document->move($path_document,$document_name);
+        }
         $news = new News;
         
         $news->name = $request->txtName;
@@ -89,6 +87,7 @@ class NewsController extends Controller
         }
         $news->mota = $request->txtDesc;
         $news->photo = $img_name;
+        $news->document = $document_name;
         $news->background = $img_name2;
         $news->title = $request->txtTitle;
         $news->content = $request->txtContent;
@@ -138,12 +137,7 @@ class NewsController extends Controller
     public function getEdit(Request $request)
     {
         if($_GET['type']=='tin-tuc') $trang='tin tức';
-        else if($_GET['type']=='dich-vu') $trang='dich vụ';
-        else if($_GET['type']=='du-an-seo') $trang='Dự án seo';
-        else if($_GET['type']=='du-an-marketing') $trang='Dự án marketing';
-        else if($_GET['type']=='du-an-content') $trang='Dự án content';
-        else if($_GET['type']=='du-an-facebook') $trang='Dự án facebook ads';
-        
+        else if($_GET['type']=='dich-vu') $trang='dich vụ';        
         else $trang = "bài viết";
 
         if(!empty($_GET['type'])){
@@ -235,6 +229,17 @@ class NewsController extends Controller
                 }
             }
 
+            $document = $request->file('fImages');
+            $document_current = 'upload/document/'.$request->document_current;
+            if(!empty($img)){
+                $path_document='upload/document';
+                $document_name=time().'_'.$img->getClientOriginalName();
+                $document->move($path_document,$document_name);
+                $news->document = $document_name;
+                if (File::exists($docuemnt_current)) {
+                    File::delete($docuemnt_current);
+                }
+            }
             if ($request->hasFile('detailImg')) {
                 foreach ($request->file('detailImg') as $file) {
                     $news_img = new Images();

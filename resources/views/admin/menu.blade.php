@@ -17,21 +17,22 @@
             <li><a href="backend/about/edit?type=gioi-thieu"><i class="fa fa-circle-o"></i> <span>Giới thiệu</span></a></li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Quản lý thiết kế</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-dashboard"></i> <span>Quản lý bài viết</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="backend/newscate?type=thiet-ke"><i class="fa fa-circle-o"></i> <span>Danh mục</span></a></li>
-                <li><a href="backend/news?type=thiet-ke"><i class="fa fa-circle-o"></i> <span>Danh sách</span></a></li>
+                <li><a href="backend/newscate?type=post"><i class="fa fa-circle-o"></i> <span>Danh mục</span></a></li>
+                <li><a href="backend/news?type=post"><i class="fa fa-circle-o"></i> <span>Danh sách</span></a></li>
               </ul>
             </li>
             <li><a href="backend/news?type=tin-tuc"><i class="fa fa-circle-o"></i> <span>Tin tức</span></a></li>
-            <!-- <li><a href="backend/news?type=cam-nang"><i class="fa fa-circle-o"></i> <span>Cẩm nag</span></a></li> -->
-                              
+            <li><a href="backend/news?type=du-an"><i class="fa fa-circle-o"></i> <span>Dự án</span></a></li>
+            <li><a href="backend/news?type=bao-gia"><i class="fa fa-circle-o"></i> <span>Báo giá</span></a></li>
+                                          
             <!-- <li><a href="backend/partner"><i class="fa fa-circle-o"></i> <span>Quản lý đối tác</span></a></li> -->
             <!-- <li><a href="backend/feedback"><i class="fa fa-gear" aria-hidden="true"></i> <span>Tại sao chọn chúng tôi</span></a></li> -->
             <!-- <li><a href="backend/slogan"><i class="fa fa-gear" aria-hidden="true"></i> <span>Slogan</span></a></li> -->
             <!-- <li><a href="backend/news?type=bai-viet"><i class="fa fa-circle-o"></i> <span>Bài viết chân trang</span></a></li> -->
-            <li><a href="backend/contact"><i class="fa fa-envelope"></i><span>Quản lý liên hệ</span></a></li>
+            <!-- <li><a href="backend/contact"><i class="fa fa-envelope"></i><span>Quản lý liên hệ</span></a></li> -->
             <li><a href="backend/newsletter?type=newsletter"><i class="fa fa-circle-o"></i> <span>Đăng ký nhận tin</span></a></li>
             <!-- <li><a href="backend/lienket?type=quang-cao"><i class="fa fa-gear" aria-hidden="true"></i> <span>Ảnh popup</span></a></li> -->
             <!-- <li><a href="backend/chinhanh"><i class="fa fa-envelope"></i><span>Chi nhánh cửa hàng</span></a></li> -->

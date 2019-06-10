@@ -1,6 +1,5 @@
 <?php
     $setting = Cache::get('setting');
-    $posts = DB::table('news')->where('com','bai-viet')->where('status',1)->get();
 ?>
 <footer>
     <div class="container">
@@ -16,11 +15,7 @@
                   <P><i class="fa fa-home"></i> {{$setting->address}}.</P>
                   <p><i class="fa fa-envelope"></i> {{$setting->email}}</p>
                   <p><i class="fa fa-phone"></i> {{$setting->phone}}</p>
-                  <div class="quytrinh">
-                      @foreach($posts as $post)                      
-                        <a href="{{url('post/'.$post->alias.'.html')}}" title="">{{$post->name}}</a>
-                      @endforeach 
-                  </div>
+                  
             </div>
             <div class="col-md-4">
                   <div class="box-newsletter">

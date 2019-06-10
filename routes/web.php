@@ -63,12 +63,15 @@ Route::get('tin-tuc',['as'=>'getListNews', 'uses'=>'IndexController@getNews']);
 Route::get('tin-tuc/{alias}.html',['as'=>'getNewsDetail', 'uses'=>'IndexController@getNewsDetail']);
 Route::get('tin-tuc/{alias}',['as'=>'getListNews', 'uses'=>'IndexController@getListNews']);
 
+Route::get('du-an/{alias}.html', 'IndexController@project');
+
 Route::get('bai-viet/{alias}.html',['as'=>'getPost', 'uses'=>'IndexController@getPost']);
 Route::get('danh-muc/{alias}',['as'=>'getListPost', 'uses'=>'IndexController@getListPost']);
 
 Route::get('post/{alias}.html',['as'=>'getBaiVietDetail', 'uses'=>'IndexController@getBaiVietDetail']);
 Route::get('error/404.html',['as'=>'getErrorNotFount', 'uses'=>'IndexController@getErrorNotFount']);
 Route::get('bao-gia','IndexController@baogia');
+Route::get('bao-gia/{alias}.html','IndexController@baogiaDetail');
 
 Route::get('backend/login',['as'=>'admin.auth.getLogin', 'uses'=>'AdminAuth\AuthController@getLogin']);
 Route::post('backend/postlogin',['as'=>'admin.auth.postLogin', 'uses'=>'AdminAuth\AuthController@postLogin']);

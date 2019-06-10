@@ -52,20 +52,21 @@ class IndexController extends Controller {
 	public function index()
 	{		
 		
-		$newsCate = NewsCate::where('parent_id',0)->where('status',1)->where('noibat',1)->where('com','post')->orderBy('id','asc')->get();
-		$news = News::where('com','tin-tuc')->where('status',1)->take(3)->orderBy('id','desc')->get();
+		$newsCate = NewsCate::where('parent_id',0)->where('status',1)->where('noibat',1)->where('com','post')->take(2)->orderBy('id','asc')->get();
+
+		$news = News::where('com','tin-tuc')->where('status',1)->take(4)->orderBy('id','desc')->get();
+		$projects = News::where('com','du-an')->where('status',1)->orderBy('id','desc')->get();
 		$slogans = DB::table('slogan')->get();
 		$partner = DB::table('partner')->get();
 		$setting =DB::table('setting')->select()->where('id',1)->get()->first();
 		$about = DB::table('about')->where('com','gioi-thieu')->first();
-		$banner = DB::table('lienket')->where('com','quang-cao')->first();
 		$title = $setting->title;
 		$keyword = $setting->keyword;
 		$description = $setting->description;		
 		$com = 'index';
 		// End cấu hình SEO
 		$img_share = asset('upload/hinhanh/'.$setting->photo);
-		return view('templates.index_tpl', compact('com','keyword','description','title','img_share','productHot','categories_home','slogans','news','about','newsCate','partner','banner'));
+		return view('templates.index_tpl', compact('com','keyword','description','title','img_share','productHot','categories_home','slogans','news','about','newsCate','partner','projects'));
 	}
 	public function getProduct(Request $req)
 	{
@@ -177,7 +178,6 @@ class IndexController extends Controller {
 	public function khuyenmai()
 	{
 		$data = Products::where('spbc','1')->where('com','san-pham')->orderBy('id','desc')->get();
-
 		$com = 'khuyen-mai';
 		$title = 'Khuyến mại';
 		$description = 'Khuyến mại';
@@ -186,9 +186,18 @@ class IndexController extends Controller {
 	}
 	public function baogia()
 	{
-		$data = DB::table('about')->where('com','bao-gia')->first();
+		$data = News::where('status',1)->where('com','bao-gia')->get();
 		$title = 'Báo giá';	
 		return view('templates.baogia',compact('data','title'));
+	}
+	public function baogiaDetail($alias)
+	{
+		$data = News::where('com','bao-gia')->where('alias',$alias)->first();
+		$com = 'bao-gia';
+		$title = $data->name;
+		$description = $data->name;
+		$keyword = $data->name;
+		return view('templates.banggia_detail', compact('data','com','title','description','keyword'));
 	}
 	public function search(Request $request)
 	{
@@ -786,4 +795,14 @@ class IndexController extends Controller {
 		return view('templates.post', compact('data','title'));
 	}
 	
+	public function project($alias)
+	{
+		$com = 'du-an';
+		$data = News::where('com','du-an')->where('alias',$alias)->first();
+		$newsSameCate = News::where('com','du-an')->get();
+		$title = $data->title ? $data->title : $data->name;
+		$description = $data->description ? $data->description : $data->name;
+		$keyword = $data->keyword ? $data->keyword : $data->name;
+		return view('templates.project', compact('data','com','title','keyword','description','newsSameCate'));
+	}
 }
