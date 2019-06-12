@@ -25,6 +25,7 @@
                         <img src="{{asset('upload/news/'.$item->photo)}}" alt="{{$item->name}}">
                     </a>
                     <p class="name_product"><a href="{{url('bai-viet/'.$item->alias.'.html')}}" title="{{$item->name}}">{{$item->name}}</a></p>
+                    <p class="mota-ngan">{{$item->mota}}</p>
                 </div>
                 @endforeach
             </div>

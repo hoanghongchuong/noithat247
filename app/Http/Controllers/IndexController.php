@@ -287,11 +287,12 @@ class IndexController extends Controller {
 	public function getListPost($alias)
 	{
 		//Tìm article thông qua mã id tương ứng
-		$tintuc_cate = NewsCate::where('status',1)->where('com','post')->where('alias',$alias)->get()->first();
+		$tintuc_cate = NewsCate::where('status',1)->where('com','post')->where('alias',$alias)->first();
 		$cateNews = NewsCate::where('com','tin-tuc')->get();
 		if(!empty($tintuc_cate)){
 			// $tintuc = DB::table('news')->select()->where('status',1)->where('cate_id',$tintuc_cate->id)->orderBy('id','desc')->paginate(1);
-			$tintuc = $tintuc_cate->news;			
+			$tintuc = $tintuc_cate->news;
+			// dd($tintuc);			
 			$hot_news = DB::table('news')->where('status',1)->where('com', 'tin-tuc')->where('noibat',1)->orderBy('stt','asc')->take(5)->get();
 			$setting = Cache::get('setting');
 

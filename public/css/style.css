@@ -508,20 +508,25 @@ footer{
 
 }
 .name_product{
-    margin-top: 10px;
-    font-size: 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    /*font-size: 15px;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     height: 42px;
-    line-height: 1.4;
+    line-height: 1.4;*/
 }
 .name_product a{
-    color: #cc6633;
-    font-size: 15px;
-    
+    color: #303030;
+    font-size: 18px;    
+}
+.mota-ngan{
+    text-align: center;
+    color: #454545;
 }
 .box-camket{
     width: 100%;

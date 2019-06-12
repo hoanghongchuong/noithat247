@@ -84,7 +84,7 @@
 								      	<input type="file" name="document">
 									</div>
 									@endif
-									@if($_GET['type']=='tin-tuc' || $_GET['type']=='du-an')
+									@if($_GET['type']=='tin-tuc' || $_GET['type']=='du-an' || $_GET['type']=='post')
 									<div class="form-group">
 								      	<label for="desc">Mô tả</label>
 								      	<textarea name="txtDesc"  rows="5" class="form-control"></textarea>
